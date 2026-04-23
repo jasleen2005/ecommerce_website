@@ -15,7 +15,10 @@ const adminOrderRoutes=require("./routes/adminOrderRoutes");
 
 const app=express();
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: "https://ecommerce-website-zo2d.vercel.app",
+  credentials: true
+}));
 dotenv.config();
 
 const PORT=process.env.PORT || 3000;
@@ -46,11 +49,3 @@ app.listen(PORT,()=>{
     console.log(`server is running on http://localhost:${PORT}`);
 });
 
-app.use(cors({
-  origin: [
-    "https://ecommerce-website-zo2d.vercel.app",
-    "https://*.vercel.app"
-  ],
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  credentials: true
-}));
