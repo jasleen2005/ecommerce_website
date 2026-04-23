@@ -45,3 +45,12 @@ app.use("/api/admin/orders",adminOrderRoutes);
 app.listen(PORT,()=>{
     console.log(`server is running on http://localhost:${PORT}`);
 });
+
+app.use(cors({
+  origin: [
+    "https://ecommerce-website-zo2d.vercel.app",
+    "https://*.vercel.app"
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
